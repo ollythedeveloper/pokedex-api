@@ -5,8 +5,6 @@ const helmet = require('helmet')
 const cors = require('cors')
 const  POKEDEX = require('./pokedex.json')
 
-console.log(process.env.API_TOKEN)
-
 const app = express()
 
 app.use(morgan('dev'))
@@ -59,7 +57,7 @@ function handleGetPokemon(req, res) {
 
 app.get('/pokemon', handleGetPokemon)
 
-const PORT = 8000
+const PORT = process.env.PORT || 8000
 
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`)
